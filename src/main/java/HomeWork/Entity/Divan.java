@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork.Entity;
 
 public class Divan extends Furniture {
 

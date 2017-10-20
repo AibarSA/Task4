@@ -1,4 +1,7 @@
-package HomeWork;
+package HomeWork.Entity;
+
+import HomeWork.Entity.Furniture;
+import HomeWork.Entity.Lightbulb;
 
 import java.util.ArrayList;
 import java.util.List;

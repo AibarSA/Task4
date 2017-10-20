@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork.Entity;
 
 public class BilliardTable extends Furniture {
     public BilliardTable(String name, int furnitureArea) {

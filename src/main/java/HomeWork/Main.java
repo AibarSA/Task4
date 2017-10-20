@@ -1,7 +1,14 @@
 package HomeWork;
 
 
+import HomeWork.Entity.*;
+import HomeWork.Exception.IlluminanceTooMuchException;
+import HomeWork.Exception.SpaceUsageTooMuchException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Main {
+    private static Logger logger = LoggerFactory.getLogger(Building.class);
     public static void main(String[] args) {
 
         Building building = new Building("Building1");
@@ -29,9 +36,10 @@ public class Main {
         try {
             building.describe();
         } catch (IlluminanceTooMuchException e) {
-            e.printStackTrace();
+            logger.error("Allowed level of illuminance in the room exceeded, total room illuminance should be less than 4000 lx.");
+
         } catch (SpaceUsageTooMuchException e) {
-            e.printStackTrace();
+            logger.error("Allowed level of usage of room area exceeded, total room space usage should be less than 70%.");
         }
 
 

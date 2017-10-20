@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork.Entity;
 
 public abstract class Furniture {
 

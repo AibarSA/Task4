@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork.Exception;
 
 public class IlluminanceTooMuchException extends Throwable {
     @Override

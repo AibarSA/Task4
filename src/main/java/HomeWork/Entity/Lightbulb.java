@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork.Entity;
 
 public class Lightbulb {
     private int lightbulbIllumination;

@@ -1,4 +1,4 @@
-package HomeWork;
+package HomeWork.Exception;
 
 public class SpaceUsageTooMuchException extends Throwable {
     @Override
