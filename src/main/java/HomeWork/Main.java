@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Main {
-    private static Logger logger = LoggerFactory.getLogger(Building.class);
+    private static Logger logger = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
 
         Building building = new Building("Building1");
@@ -21,7 +21,7 @@ public class Main {
         building.addRoom(secondRoom);
         building.addRoom(thirdRoom);
 
-        building.getRoom(firstRoom).addLightBulb(new Lightbulb(170));
+        building.getRoom(firstRoom).addLightBulb(new Lightbulb(4001));
         building.getRoom(firstRoom).addLightBulb(new Lightbulb(250));
         building.getRoom(thirdRoom).addLightBulb(new Lightbulb(370));
 
