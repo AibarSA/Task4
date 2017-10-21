@@ -21,7 +21,7 @@ public class Main {
         building.addRoom(secondRoom);
         building.addRoom(thirdRoom);
 
-        building.getRoom(firstRoom).addLightBulb(new Lightbulb(4001));
+        building.getRoom(firstRoom).addLightBulb(new Lightbulb(170));
         building.getRoom(firstRoom).addLightBulb(new Lightbulb(250));
         building.getRoom(thirdRoom).addLightBulb(new Lightbulb(370));
 
