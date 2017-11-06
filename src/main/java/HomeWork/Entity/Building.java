@@ -2,41 +2,44 @@ package HomeWork.Entity;
 
 import HomeWork.Exception.IlluminanceTooMuchException;
 import HomeWork.Exception.SpaceUsageTooMuchException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Building {
 
-    private static Logger logger = LoggerFactory.getLogger(Building.class);
+    static Logger logger =LogManager.getLogger(Building.class);
 
-    private String BuildingName;
+    private String buildingName;
     List<Room> rooms = new ArrayList<Room>();
 
     public Building(String buildingName) {
-        BuildingName = buildingName;
+        this.buildingName = buildingName;
+    }
+
+    public void addRoom(Room room) {
+        rooms.add(room);
     }
 
 
-    public void addRoom(Room firstRoom) {
-        rooms.add(firstRoom);
-    }
-
-
-    public Room getRoom(Room firstRoom){
+    public Room getRoom(String name){
+        Room res = null;
         for (int i = 0; i <rooms.size() ; i++) {
-            Room r = rooms.get(i);
-            if (r.equals(firstRoom)) return r;
-        }return null;
+            Room room = rooms.get(i);
+            if (room.getName().equals(name)) res = room;
+        }return res;
     }
 
 
-    public void describe() throws IlluminanceTooMuchException, SpaceUsageTooMuchException {
+    public void describe() throws IlluminanceTooMuchException, SpaceUsageTooMuchException, IlluminanceNotEnoughException {
+            logger.info(buildingName);
         for (int i = 0; i <rooms.size() ; i++) {
-            int totalIlluminationOfLightbulbs =0;
+            String roomName = rooms.get(i).getName();
             double totalAreaOfFurnitures =0;
+            int totalIlluminationOfLightbulbs =0;
             int totalIlluminationOfWindows = rooms.get(i).getWindow()*700;
             double areaOfRoom = rooms.get(i).getRoomArea();
             String furnitureName;
@@ -55,6 +58,10 @@ public class Building {
                 throw new IlluminanceTooMuchException();
             }
 
+            if((totalIlluminationOfLightbulbs + totalIlluminationOfWindows) < 300){
+                throw new IlluminanceNotEnoughException();
+            }
+
             if((totalAreaOfFurnitures*100/areaOfRoom) > 70){
                 throw new SpaceUsageTooMuchException();
             }
@@ -62,9 +69,25 @@ public class Building {
 
 
 
-            logger.info('\n'+rooms.get(i).getName());
-            logger.info("Illumination = "+ (totalIlluminationOfLightbulbs+ totalIlluminationOfWindows) +"("+ rooms.get(i).getWindow() + " of windows with 700 lx, and total illuminance of lightbulbs is: " + totalIlluminationOfLightbulbs+ " lx)");
-            logger.info('\n'+"Room area = " + areaOfRoom + " m^2 (used: "+ totalAreaOfFurnitures + " m^2, available space : "+ (areaOfRoom-totalAreaOfFurnitures)+" m^2, or "+ (100-(totalAreaOfFurnitures*100/areaOfRoom)) +" % )");
+
+            logger.info(roomName);
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("Illumination = "+ (totalIlluminationOfLightbulbs+ totalIlluminationOfWindows) +"("+ rooms.get(i).getWindow() + " of windows with 700 lx");
+
+            if (rooms.get(i).lightbulbs.size()==0){
+                sb.append(")");
+            }else {
+                for (int j = 0; j < rooms.get(i).lightbulbs.size(); j++) {
+                    if (j==0) sb.append(", lightBulbs: ");
+                    sb.append(rooms.get(i).lightbulbs.get(j).getLightbulbIllumination() + " lx");
+                    if (j < rooms.get(i).lightbulbs.size() - 1) sb.append(" and ");
+                    if (j == rooms.get(i).lightbulbs.size() - 1) sb.append(")");
+                }
+            }
+
+            logger.info(String.valueOf(sb));
+            logger.info("Room area = " + areaOfRoom + " m^2 (used: "+ totalAreaOfFurnitures + " m^2, available space : "+ (areaOfRoom-totalAreaOfFurnitures)+" m^2, or "+ (100-(totalAreaOfFurnitures*100/areaOfRoom)) +" % )");
             logger.info("Furniture: ");
 
             if (!rooms.get(i).furnitures.isEmpty()){

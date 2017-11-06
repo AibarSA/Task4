@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="trace">
+  <Appenders>
+    <File name="file" fileName="src/main/resources/logs.txt">
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
+      </PatternLayout>
+    </File>
+    <File name="file2" fileName="src/main/resources/logs-errors.txt">
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
+      </PatternLayout>
+    </File>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout pattern="Class:%c\t Method:%M\t Message:%m%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="file"/>
+      <AppenderRef ref="file2" level="error"/>
+      <AppenderRef ref="STDOUT" level="error"/>
+    </Root>
+  </Loggers>
+</Configuration>

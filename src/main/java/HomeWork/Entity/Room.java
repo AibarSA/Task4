@@ -13,6 +13,8 @@ public class Room {
     List<Lightbulb> lightbulbs = new ArrayList<Lightbulb>();
     List<Furniture> furnitures = new ArrayList<Furniture>();
 
+
+
     public String getName() {
         return name;
     }
@@ -32,6 +34,11 @@ public class Room {
         this.name = name;
         this.roomArea = roomArea;
         this.window = window;
+    }
+
+    public Room(String name, int roomArea) {
+        this.name = name;
+        this.roomArea = roomArea;
     }
 
     public void addLightBulb(Lightbulb firstLightBulb) {
