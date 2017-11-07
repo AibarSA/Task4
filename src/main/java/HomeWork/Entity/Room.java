@@ -19,6 +19,14 @@ public class Room {
         this.window = window;
     }
 
+    public Room(String name, int roomArea) {
+        this.name = name;
+        this.roomArea = roomArea;
+
+    }
+
+
+
     public void setName(String name) {
         this.name = name;
     }

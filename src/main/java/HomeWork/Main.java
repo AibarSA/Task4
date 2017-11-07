@@ -14,37 +14,35 @@ public class Main {
         org.apache.log4j.BasicConfigurator.configure();
 
 
-        Room firstRoom = new Room("firstRoom",250,3);
-        Room secondRoom = new Room("secondRoom",80,2);
+
 
         Building building = new Building("Building1");
 
+
+
+
+        Room firstRoom = new Room("firstRoom",250,3);
+        Room secondRoom = new Room("secondRoom",80,2);
+        Room thirdRoom = new Room("thirdRoom",350);
+
         building.addRoom(firstRoom);
         building.addRoom(secondRoom);
+        building.addRoom(thirdRoom);
 
         building.getRoom(firstRoom).addLightBulb(new Lightbulb(150));
-        building.getRoom(secondRoom).addLightBulb(new Lightbulb(250));
+        building.getRoom(firstRoom).addLightBulb(new Lightbulb(250));
+        building.getRoom(thirdRoom).addLightBulb(new Lightbulb(170));
 
 
         building.getRoom(firstRoom).addFurniture(new Divan("Divan", 50));
         building.getRoom(firstRoom).addFurniture(new BilliardTable("BilliardTable", 7));
         building.getRoom(firstRoom).addFurniture(new DiningTable("DiningTable", 15));
-        building.getRoom(secondRoom).addFurniture(new Aquarium("Aquarium", 20));
-        building.getRoom(secondRoom).addFurniture(new Bookcase("Bookcase", 35));
+        building.getRoom(thirdRoom).addFurniture(new Aquarium("Aquarium", 20));
+        building.getRoom(thirdRoom).addFurniture(new Bookcase("Bookcase", 35));
 
 
         System.out.println(firstRoom);
         System.out.println(secondRoom);
-
-
-
-
-
-
-
-
-
-/*
 
         try {
             building.describe();
@@ -55,6 +53,6 @@ public class Main {
         } catch (IlluminanceNotEnoughException e) {
             logger.error("Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
         }
-*/
+
     }
 }
