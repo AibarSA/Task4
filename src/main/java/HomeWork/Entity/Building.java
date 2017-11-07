@@ -11,9 +11,9 @@ import java.util.List;
 
 public class Building {
 
-    static Logger logger =LogManager.getLogger(Building.class);
+   // static Logger logger =LogManager.getLogger(Building.class);
 
-    private String buildingName;
+   // private String buildingName;
     List<Room> rooms = new ArrayList<Room>();
 
     private static Building inctanse = new Building();
@@ -25,17 +25,16 @@ public class Building {
     }
 
 
-
     public void addRoom(Room room) {
         rooms.add(room);
     }
 
 
-    public Room getRoom(Room name){
+    public Room getRoom(String name){
         Room res = null;
         for (int i = 0; i <rooms.size() ; i++) {
             Room room = rooms.get(i);
-            if (room.equals(name)) res = room;
+            if (room.getName().equals(name)) res = room;
         }return res;
     }
 

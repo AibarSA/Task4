@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Room {
-    static Logger logger = LogManager.getLogger(Room.class);
 
     private String name;
     private int roomArea;
@@ -37,18 +36,6 @@ public class Room {
 
     }
 
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setRoomArea(int roomArea) {
-        this.roomArea = roomArea;
-    }
-
-    public void setWindow(int window) {
-        this.window = window;
-    }
 
     public String getName() {
         return name;
