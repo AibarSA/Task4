@@ -43,6 +43,7 @@ public class Main {
 
         System.out.println(firstRoom);
         System.out.println(secondRoom);
+        System.out.println(thirdRoom);
 
         try {
             building.describe();
