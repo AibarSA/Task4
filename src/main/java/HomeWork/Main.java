@@ -4,6 +4,7 @@ package HomeWork;
 import HomeWork.Entity.*;
 import HomeWork.Exception.IlluminanceTooMuchException;
 import HomeWork.Exception.SpaceUsageTooMuchException;
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -11,14 +12,10 @@ import org.apache.log4j.Logger;
 public class Main {
     static Logger logger = LogManager.getLogger(Main.class);
     public static void main(String[] args) {
-        org.apache.log4j.BasicConfigurator.configure();
-
-
+        BasicConfigurator.configure();
 
 
         Building building = new Building("Building1");
-
-
 
 
         Room firstRoom = new Room("firstRoom",250,3);
