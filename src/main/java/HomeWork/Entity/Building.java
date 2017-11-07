@@ -16,9 +16,15 @@ public class Building {
     private String buildingName;
     List<Room> rooms = new ArrayList<Room>();
 
-    public Building(String buildingName) {
-        this.buildingName = buildingName;
+    private static Building inctanse = new Building();
+    private Building() {
     }
+
+    public static Building getInctanse() {
+        return inctanse;
+    }
+
+
 
     public void addRoom(Room room) {
         rooms.add(room);
@@ -34,6 +40,9 @@ public class Building {
     }
 
 
+
+
+/*
     public void describe() throws IlluminanceTooMuchException, SpaceUsageTooMuchException, IlluminanceNotEnoughException {
             logger.info(buildingName);
         for (int i = 0; i <rooms.size() ; i++) {
@@ -103,4 +112,6 @@ public class Building {
 
         }
     }
+
+    */
 }

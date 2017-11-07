@@ -15,7 +15,8 @@ public class Main {
         BasicConfigurator.configure();
 
 
-        Building building = new Building("Building1");
+        Building building = Building.getInctanse();
+        Room room = new Room();
 
 
         Room firstRoom = new Room("firstRoom",250,3);
@@ -37,20 +38,38 @@ public class Main {
         building.getRoom(thirdRoom).addFurniture(new Aquarium("Aquarium", 20));
         building.getRoom(thirdRoom).addFurniture(new Bookcase("Bookcase", 35));
 
+        System.out.println(room);
 
-        System.out.println(firstRoom);
-        System.out.println(secondRoom);
-        System.out.println(thirdRoom);
 
-        try {
-            building.describe();
-        } catch (IlluminanceTooMuchException e) {
-            logger.error("Allowed level of illuminance in the room exceeded, total room illuminance should be less than 4000 lx.");
-        } catch (SpaceUsageTooMuchException e) {
-            logger.error("Allowed level of usage of room area exceeded, total room space usage should be less than 70%.");
-        } catch (IlluminanceNotEnoughException e) {
-            logger.error("Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        try {
+//            building.describe();
+//        } catch (IlluminanceTooMuchException e) {
+//            logger.error("Allowed level of illuminance in the room exceeded, total room illuminance should be less than 4000 lx.");
+//        } catch (SpaceUsageTooMuchException e) {
+//            logger.error("Allowed level of usage of room area exceeded, total room space usage should be less than 70%.");
+//        } catch (IlluminanceNotEnoughException e) {
+//            logger.error("Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
+//        }
 
     }
 }
