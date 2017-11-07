@@ -14,15 +14,8 @@ public class Main {
         org.apache.log4j.BasicConfigurator.configure();
 
 
-        Room firstRoom = new Room();
-        firstRoom.setName("firstRoom");
-        firstRoom.setRoomArea(250);
-        firstRoom.setWindow(3);
-
-        Room secondRoom = new Room();
-        secondRoom.setName("secondRoom");
-        secondRoom.setRoomArea(80);
-        secondRoom.setWindow(2);
+        Room firstRoom = new Room("firstRoom",250,3);
+        Room secondRoom = new Room("secondRoom",80,2);
 
         Building building = new Building("Building1");
 
