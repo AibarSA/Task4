@@ -11,5 +11,10 @@ public class Lightbulb {
         return lightbulbIllumination;
     }
 
-
+    @Override
+    public String toString() {
+        return "Lightbulb{" +
+                "lightbulbIllumination=" + lightbulbIllumination +
+                '}';
+    }
 }

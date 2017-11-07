@@ -9,4 +9,12 @@ public abstract class Furniture {
         this.name = name;
         this.furnitureArea = furnitureArea;
     }
+
+    @Override
+    public String toString() {
+        return "Furniture{" +
+                "name='" + name + '\'' +
+                ", furnitureArea=" + furnitureArea +
+                '}';
+    }
 }

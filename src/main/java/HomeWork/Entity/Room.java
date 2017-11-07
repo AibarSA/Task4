@@ -13,7 +13,20 @@ public class Room {
     List<Lightbulb> lightbulbs = new ArrayList<Lightbulb>();
     List<Furniture> furnitures = new ArrayList<Furniture>();
 
+    public Room() {
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRoomArea(int roomArea) {
+        this.roomArea = roomArea;
+    }
+
+    public void setWindow(int window) {
+        this.window = window;
+    }
 
     public String getName() {
         return name;
@@ -30,16 +43,7 @@ public class Room {
     }
 
 
-    public Room(String name, int roomArea, int window) {
-        this.name = name;
-        this.roomArea = roomArea;
-        this.window = window;
-    }
 
-    public Room(String name, int roomArea) {
-        this.name = name;
-        this.roomArea = roomArea;
-    }
 
     public void addLightBulb(Lightbulb firstLightBulb) {
 
@@ -48,5 +52,16 @@ public class Room {
 
     public void addFurniture(Furniture divan) {
         furnitures.add(divan);
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "name='" + name + '\'' +
+                ", roomArea=" + roomArea +
+                ", window=" + window +
+                ", lightbulbs=" + lightbulbs +
+                ", furnitures=" + furnitures +
+                '}';
     }
 }

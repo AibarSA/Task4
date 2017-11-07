@@ -25,11 +25,11 @@ public class Building {
     }
 
 
-    public Room getRoom(String name){
+    public Room getRoom(Room name){
         Room res = null;
         for (int i = 0; i <rooms.size() ; i++) {
             Room room = rooms.get(i);
-            if (room.getName().equals(name)) res = room;
+            if (room.equals(name)) res = room;
         }return res;
     }
 

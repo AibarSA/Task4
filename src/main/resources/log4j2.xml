@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="trace">
+<Configuration status="INFO">
   <Appenders>
-    <File name="file" fileName="src/main/resources/logs.txt">
-      <PatternLayout>
-        <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
-      </PatternLayout>
-    </File>
-    <File name="file2" fileName="src/main/resources/logs-errors.txt">
+    <File name="file" fileName="myApp.log">
       <PatternLayout>
         <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
       </PatternLayout>
@@ -16,10 +11,9 @@
     </Console>
   </Appenders>
   <Loggers>
-    <Root level="trace">
-      <AppenderRef ref="file"/>
-      <AppenderRef ref="file2" level="error"/>
-      <AppenderRef ref="STDOUT" level="error"/>
+    <Root level="INFO">
+      <AppenderRef ref="file" level="DEBUG"/>
+      <AppenderRef ref="STDOUT" level="ERROR"/>
     </Root>
   </Loggers>
 </Configuration>

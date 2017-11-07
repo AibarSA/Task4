@@ -14,23 +14,44 @@ public class Main {
         org.apache.log4j.BasicConfigurator.configure();
 
 
+        Room firstRoom = new Room();
+        firstRoom.setName("firstRoom");
+        firstRoom.setRoomArea(250);
+        firstRoom.setWindow(3);
+
+        Room secondRoom = new Room();
+        secondRoom.setName("secondRoom");
+        secondRoom.setRoomArea(80);
+        secondRoom.setWindow(2);
+
         Building building = new Building("Building1");
 
-        building.addRoom(new Room("firstRoom", 250,3));
-        building.addRoom(new Room("secondRoom", 80,2));
-        building.addRoom(new Room("thirdRoom", 500));
+        building.addRoom(firstRoom);
+        building.addRoom(secondRoom);
 
-        building.getRoom("firstRoom").addLightBulb(new Lightbulb(150));
-        building.getRoom("firstRoom").addLightBulb(new Lightbulb(250));
-        building.getRoom("thirdRoom").addLightBulb(new Lightbulb(170));
+        building.getRoom(firstRoom).addLightBulb(new Lightbulb(150));
+        building.getRoom(secondRoom).addLightBulb(new Lightbulb(250));
 
 
-        building.getRoom("firstRoom").addFurniture(new Divan("Divan", 50));
-        building.getRoom("firstRoom").addFurniture(new BilliardTable("BilliardTable", 7));
-        building.getRoom("firstRoom").addFurniture(new DiningTable("DiningTable", 15));
-        building.getRoom("thirdRoom").addFurniture(new Aquarium("Aquarium", 20));
-        building.getRoom("thirdRoom").addFurniture(new Bookcase("Bookcase", 35));
+        building.getRoom(firstRoom).addFurniture(new Divan("Divan", 50));
+        building.getRoom(firstRoom).addFurniture(new BilliardTable("BilliardTable", 7));
+        building.getRoom(firstRoom).addFurniture(new DiningTable("DiningTable", 15));
+        building.getRoom(secondRoom).addFurniture(new Aquarium("Aquarium", 20));
+        building.getRoom(secondRoom).addFurniture(new Bookcase("Bookcase", 35));
 
+
+        System.out.println(firstRoom);
+        System.out.println(secondRoom);
+
+
+
+
+
+
+
+
+
+/*
 
         try {
             building.describe();
@@ -41,5 +62,6 @@ public class Main {
         } catch (IlluminanceNotEnoughException e) {
             logger.error("Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
         }
+*/
     }
 }
