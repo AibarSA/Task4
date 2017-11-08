@@ -65,19 +65,31 @@ public class Room {
 
     StringBuilder sb = new StringBuilder();
 
+//    @Override
+//    public String toString() {
+//        for (int i = 0; i <building.rooms.size() ; i++) {
+//
+//             sb.append( "Room{" +
+//                    "name='" + building.rooms.get(i).getName() + '\'' +
+//                    ", roomArea=" + building.rooms.get(i).getRoomArea() +
+//                    ", window=" + building.rooms.get(i).getWindow() +
+//                    ", lightbulbs=" + building.rooms.get(i).lightbulbs +
+//                    ", furnitures=" + building.rooms.get(i).furnitures +
+//                    '}');
+//        }
+//
+//        return String.valueOf(sb);
+//    }
+
+
     @Override
     public String toString() {
-        for (int i = 0; i <building.rooms.size() ; i++) {
-
-             sb.append( "Room{" +
-                    "name='" + building.rooms.get(i).getName() + '\'' +
-                    ", roomArea=" + building.rooms.get(i).getRoomArea() +
-                    ", window=" + building.rooms.get(i).getWindow() +
-                    ", lightbulbs=" + building.rooms.get(i).lightbulbs +
-                    ", furnitures=" + building.rooms.get(i).furnitures +
-                    '}');
-        }
-
-        return String.valueOf(sb);
+        return "Room{" +
+                "name='" + name + '\'' +
+                ", roomArea=" + roomArea +
+                ", window=" + window +
+                ", lightbulbs=" + lightbulbs +
+                ", furnitures=" + furnitures +
+                '}';
     }
 }
