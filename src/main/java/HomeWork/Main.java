@@ -18,7 +18,6 @@ public class Main {
         BasicConfigurator.configure();
 
         Building building = Building.getInctanse();
-        Room room = new Room();
 
         building.addRoom(new Room("firstRoom",250,3));
         building.addRoom(new Room("secondRoom",80,2));
@@ -35,9 +34,9 @@ public class Main {
         building.getRoom("thirdRoom").addFurniture(new Aquarium("Aquarium", 20));
         building.getRoom("thirdRoom").addFurniture(new Bookcase("Bookcase", 35));
 
-        System.out.println(room);
 
 
+        building.describe();
 
 
 

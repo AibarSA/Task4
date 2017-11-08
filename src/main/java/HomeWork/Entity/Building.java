@@ -1,10 +1,5 @@
 package HomeWork.Entity;
 
-import HomeWork.Exception.IlluminanceTooMuchException;
-import HomeWork.Exception.SpaceUsageTooMuchException;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +10,7 @@ public class Building {
 
    // private String buildingName;
     List<Room> rooms = new ArrayList<Room>();
+    Room room;
 
     private static Building inctanse = new Building();
     private Building() {
@@ -36,6 +32,13 @@ public class Building {
             Room room = rooms.get(i);
             if (room.getName().equals(name)) res = room;
         }return res;
+    }
+
+
+
+    public void describe(){
+       room = new Room();
+    System.out.println(room);
     }
 
 
