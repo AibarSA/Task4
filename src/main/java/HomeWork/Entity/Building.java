@@ -10,7 +10,7 @@ public class Building {
 
    // private String buildingName;
     List<Room> rooms = new ArrayList<Room>();
-    Room room;
+
 
     private static Building inctanse = new Building();
     private Building() {
@@ -37,12 +37,20 @@ public class Building {
 
 
     public void describe(){
-       room = new Room();
-    System.out.println(room);
+    System.out.println(rooms);
     }
 
 
 
+
+    
+
+    @Override
+    public String toString() {
+        return "Building{" +
+                "rooms=" + rooms +
+                '}';
+    }
 
 /*
     public void describe() throws IlluminanceTooMuchException, SpaceUsageTooMuchException, IlluminanceNotEnoughException {
