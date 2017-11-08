@@ -1,14 +1,19 @@
 package HomeWork.Entity;
 
 
+import HomeWork.Exception.IlluminanceTooMuchException;
+import HomeWork.Exception.SpaceUsageTooMuchException;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Building {
 
-   // static Logger logger =LogManager.getLogger(Building.class);
+   static Logger logger = LogManager.getLogger(Building.class);
 
-   // private String buildingName;
+    private String name;
     List<Room> rooms = new ArrayList<Room>();
 
 
@@ -36,15 +41,11 @@ public class Building {
 
 
 
-    public void describe(){
-    System.out.println(rooms);
-    }
+//    public void describe(){
+//    System.out.println(rooms);
+//    }
 
-
-
-
-
-
+    
     @Override
     public String toString() {
         return "Building{" +
@@ -52,9 +53,17 @@ public class Building {
                 '}';
     }
 
-/*
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
     public void describe() throws IlluminanceTooMuchException, SpaceUsageTooMuchException, IlluminanceNotEnoughException {
-            logger.info(buildingName);
+            logger.info(name);
         for (int i = 0; i <rooms.size() ; i++) {
             String roomName = rooms.get(i).getName();
             double totalAreaOfFurnitures =0;
@@ -123,5 +132,5 @@ public class Building {
         }
     }
 
-    */
+
 }

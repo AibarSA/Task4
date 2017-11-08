@@ -11,13 +11,14 @@ import org.apache.log4j.Logger;
 
 public class Main {
 
-        //static Logger logger = LogManager.getLogger(Main.class);
+        static Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
 
         BasicConfigurator.configure();
 
         Building building = Building.getInctanse();
+        building.setName("Building1");
 
         building.addRoom(new Room("firstRoom",250,3));
         building.addRoom(new Room("secondRoom",80,2));
@@ -36,36 +37,15 @@ public class Main {
 
 
 
-        building.describe();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        try {
-//            building.describe();
-//        } catch (IlluminanceTooMuchException e) {
-//            logger.error("Allowed level of illuminance in the room exceeded, total room illuminance should be less than 4000 lx.");
-//        } catch (SpaceUsageTooMuchException e) {
-//            logger.error("Allowed level of usage of room area exceeded, total room space usage should be less than 70%.");
-//        } catch (IlluminanceNotEnoughException e) {
-//            logger.error("Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
-//        }
+        try {
+            building.describe();
+        } catch (IlluminanceTooMuchException e) {
+            logger.error("Allowed level of illuminance in the room exceeded, total room illuminance should be less than 4000 lx.");
+        } catch (SpaceUsageTooMuchException e) {
+            logger.error("Allowed level of usage of room area exceeded, total room space usage should be less than 70%.");
+        } catch (IlluminanceNotEnoughException e) {
+            logger.error("Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
+        }
 
     }
 }

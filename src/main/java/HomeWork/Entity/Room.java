@@ -69,8 +69,8 @@ public class Room {
 //    public String toString() {
 //        for (int i = 0; i <building.rooms.size() ; i++) {
 //
-//             sb.append( "Room{" +
-//                    "name='" + building.rooms.get(i).getName() + '\'' +
+//             sb.append( "Building name: " + building.getName() +
+//                    "'\n'roomName: " + building.rooms.get(i).getName() + '\'' +
 //                    ", roomArea=" + building.rooms.get(i).getRoomArea() +
 //                    ", window=" + building.rooms.get(i).getWindow() +
 //                    ", lightbulbs=" + building.rooms.get(i).lightbulbs +
