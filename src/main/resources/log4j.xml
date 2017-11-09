@@ -16,11 +16,19 @@
       <param name="ConversionPattern" value="%p %t %c - %m%n"/>
     </layout>
   </appender>
+  <appender name="file2" class="org.apache.log4j.RollingFileAppender">
+    <param name="file" value="src/main/resources/logs-error.txt"/>
+    <param name="MaxFileSize" value="100KB"/>
+    <!-- Keep one backup file -->
+    <param name="MaxBackupIndex" value="1"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%p %t %c - %m%n"/>
+    </layout>
+  </appender>
 
   <root>
-    <priority value ="trace" />
+    <priority value ="trace"  />
     <appender-ref ref="stdout" />
-    <appender-ref ref="file1" />
   </root>
 
 </log4j:configuration>

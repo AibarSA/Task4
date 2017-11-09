@@ -8,6 +8,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import javax.swing.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,33 +64,54 @@ public class Room {
         furnitures.add(divan);
     }
 
-    StringBuilder sb = new StringBuilder();
-
-//    @Override
-//    public String toString() {
-//        for (int i = 0; i <building.rooms.size() ; i++) {
-//
-//             sb.append( "Building name: " + building.getName() +
-//                    "'\n'roomName: " + building.rooms.get(i).getName() + '\'' +
-//                    ", roomArea=" + building.rooms.get(i).getRoomArea() +
-//                    ", window=" + building.rooms.get(i).getWindow() +
-//                    ", lightbulbs=" + building.rooms.get(i).lightbulbs +
-//                    ", furnitures=" + building.rooms.get(i).furnitures +
-//                    '}');
-//        }
-//
-//        return String.valueOf(sb);
-//    }
-
+    StringBuilder res = new StringBuilder();
 
     @Override
     public String toString() {
-        return "Room{" +
-                "name='" + name + '\'' +
-                ", roomArea=" + roomArea +
-                ", window=" + window +
-                ", lightbulbs=" + lightbulbs +
-                ", furnitures=" + furnitures +
-                '}';
+
+        double totalAreaOfFurnitures =0;
+        int totalIlluminationOfLightbulbs =0;
+        int totalIlluminationOfWindows = window*700;
+        String furnitureName;
+
+
+        for (int j = 0; j <lightbulbs.size() ; j++) {
+            totalIlluminationOfLightbulbs += lightbulbs.get(j).getLightbulbIllumination();
+        }
+        for (int j = 0; j <furnitures.size() ; j++) {
+            totalAreaOfFurnitures += furnitures.get(j).furnitureArea;
+        }
+
+
+
+        res.append('\n'+name);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Illumination = "+ (totalIlluminationOfLightbulbs+ totalIlluminationOfWindows) +"("+ window + " of windows with 700 lx");
+
+        if (lightbulbs.size()==0){
+            sb.append(")");
+        }else {
+            for (int j = 0; j < lightbulbs.size(); j++) {
+                if (j==0) sb.append(", lightBulbs: ");
+                sb.append(lightbulbs.get(j).getLightbulbIllumination() + " lx");
+                if (j < lightbulbs.size() - 1) sb.append(" and ");
+                if (j == lightbulbs.size() - 1) sb.append(")");
+            }
+        }
+
+        res.append('\n'+String.valueOf(sb));
+        res.append("\nRoom area = " + roomArea + " m^2 (used: "+ totalAreaOfFurnitures + " m^2, available space : "+ (roomArea-totalAreaOfFurnitures)+" m^2, or "+ new DecimalFormat("##.##").format(100-(totalAreaOfFurnitures*100/roomArea)) +" % )");
+        res.append("\nFurniture: ");
+
+        if (!furnitures.isEmpty()){
+            for (int j = 0; j <furnitures.size() ; j++) {
+                furnitureName = furnitures.get(j).name;
+                res.append('\n'+furnitureName + " (area: " + furnitures.get(j).furnitureArea + " m^2)");
+            }
+        }else{
+            res.append("\nThere is no any furniture.");
+        }
+        return String.valueOf(res);
     }
 }

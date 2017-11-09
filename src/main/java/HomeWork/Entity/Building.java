@@ -40,20 +40,8 @@ public class Building {
     }
 
 
-
-//    public void describe(){
-//    System.out.println(rooms);
-//    }
-
-    
     @Override
     public String toString() {
-        return "Building{" +
-                "rooms=" + rooms +
-                '}';
-    }
-
-    public String getName() {
         return name;
     }
 
@@ -62,6 +50,15 @@ public class Building {
     }
 
 
+    public void describe(){
+        System.out.println(this);
+        for (Room room : rooms) {
+            System.out.println(room);
+        }
+    }
+
+
+    /*
     public void describe() throws IlluminanceTooMuchException, SpaceUsageTooMuchException, IlluminanceNotEnoughException {
             logger.info(name);
         for (int i = 0; i <rooms.size() ; i++) {
@@ -131,6 +128,8 @@ public class Building {
 
         }
     }
+
+    */
 
 
 }

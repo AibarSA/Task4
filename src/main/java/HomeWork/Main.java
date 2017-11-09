@@ -37,6 +37,10 @@ public class Main {
 
 
 
+        building.describe();
+
+
+        /*
         try {
             building.describe();
         } catch (IlluminanceTooMuchException e) {
@@ -46,6 +50,7 @@ public class Main {
         } catch (IlluminanceNotEnoughException e) {
             logger.error("Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
         }
+        */
 
     }
 }
