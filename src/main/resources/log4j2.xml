@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration >
+    <Appenders>
+        <Console name="Console">
+            <PatternLayout pattern="XML: %d{dd/MM/yyyy HH:mm:ss} %c:[%t] %-5p - %m%n"/>
+        </Console>
+        <File name="File" fileName="src/main/resources/logs.txt">
+            <PatternLayout pattern="XML: %d{dd/MM/yyyy HH:mm:ss} %c:[%t] %-5p - %m%n"/>
+        </File>
+        <File name="File2" fileName="src/main/resources/logs-error.txt">
+            <PatternLayout pattern="XML: %d{dd/MM/yyyy HH:mm:ss} %c:[%t] %-5p - %m%n"/>
+        </File>
+        <File name="File3" fileName="src/main/resources/logs-debug.txt">
+            <PatternLayout pattern="XML: %d{dd/MM/yyyy HH:mm:ss} %c:[%t] %-5p - Method:%M\t Message:%m%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File" level="trace"/>
+            <AppenderRef ref="File2" level="error"/>
+            <AppenderRef ref="File3" level="debug"/>
+        </Root>
+    </Loggers>
+</Configuration>

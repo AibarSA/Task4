@@ -1,4 +1,4 @@
-package HomeWork.Entity;
+package com.epam.testAutomationLab.homeWork.Entity;
 
 public class Divan extends Furniture {
 

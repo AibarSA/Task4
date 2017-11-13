@@ -1,4 +1,4 @@
-package HomeWork.Entity;
+package com.epam.testAutomationLab.homeWork.Entity;
 
 public class IlluminanceNotEnoughException extends Exception {
     @Override

@@ -1,4 +1,4 @@
-package HomeWork.Exception;
+package com.epam.testAutomationLab.homeWork.Exception;
 
 public class IlluminanceTooMuchException extends Exception {
     @Override

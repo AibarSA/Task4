@@ -1,24 +1,20 @@
-package HomeWork;
+package com.epam.testAutomationLab.homeWork;
 
-
-import HomeWork.Entity.*;
-import HomeWork.Exception.IlluminanceTooMuchException;
-import HomeWork.Exception.SpaceUsageTooMuchException;
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import com.epam.testAutomationLab.homeWork.Entity.*;
+import com.epam.testAutomationLab.homeWork.Exception.IlluminanceTooMuchException;
+import com.epam.testAutomationLab.homeWork.Exception.SpaceUsageTooMuchException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class Main {
 
-        static Logger logger = LogManager.getLogger(Main.class);
+    static Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
 
-        BasicConfigurator.configure();
 
-        Building building = Building.getInctanse();
-        building.setName("Building1");
+        Building building = new Building("Building1");
 
         building.addRoom(new Room("firstRoom",250,3));
         building.addRoom(new Room("secondRoom",80,2));
@@ -26,7 +22,7 @@ public class Main {
 
         building.getRoom("firstRoom").addLightBulb(new Lightbulb(150));
         building.getRoom("firstRoom").addLightBulb(new Lightbulb(250));
-        building.getRoom("thirdRoom").addLightBulb(new Lightbulb(170));
+        building.getRoom("thirdRoom").addLightBulb(new Lightbulb(150));
 
 
         building.getRoom("firstRoom").addFurniture(new Divan("Divan", 50));
@@ -37,10 +33,10 @@ public class Main {
 
 
 
-        building.describe();
+       // building.describe();
 
 
-        /*
+
         try {
             building.describe();
         } catch (IlluminanceTooMuchException e) {
@@ -50,7 +46,9 @@ public class Main {
         } catch (IlluminanceNotEnoughException e) {
             logger.error("Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
         }
-        */
+
+
+
 
     }
 }
