@@ -3,7 +3,6 @@ package com.epam.testAutomationLab.homeWork.Entity;
 
 import com.epam.testAutomationLab.homeWork.Exception.IlluminanceTooMuchException;
 import com.epam.testAutomationLab.homeWork.Exception.SpaceUsageTooMuchException;
-import com.epam.testAutomationLab.homeWork.Main;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class Building {
 
-   static Logger logger = LogManager.getLogger(Main.class);
+   static Logger logger = LogManager.getLogger(Building.class);
 
     private String name;
     List<Room> rooms = new ArrayList<Room>();
@@ -25,19 +24,18 @@ public class Building {
     }
 
     public void addRoom(Room room) {
-        logger.debug("adding "+ room+" to rooms list");
+       // logger.debug("adding "+ room+" to rooms list");
         rooms.add(room);
     }
 
 
     public Room getRoom(String name){
-        logger.debug("came parametre "+ name);
+      //  logger.debug("came parameter "+ name);
         Room res = null;
-
         for (Room room : rooms) {
             if (room.getName().equals(name)) res = room;
         }
-        logger.debug("return "+ res);
+       // logger.debug("return "+ res);
         return res;
     }
 
@@ -45,16 +43,16 @@ public class Building {
         this.name = name;
     }
 
-/*
+
     public void describe(){
         System.out.println(this);
         for (Room room : rooms) {
             System.out.println(room);
         }
     }
-*/
 
 
+/*
     public void describe() throws IlluminanceTooMuchException, SpaceUsageTooMuchException, IlluminanceNotEnoughException {
         logger.info(this);
 
@@ -123,7 +121,7 @@ public class Building {
             }
         }
     }
-
+*/
 
 
     @Override

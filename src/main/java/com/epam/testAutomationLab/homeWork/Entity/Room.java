@@ -1,5 +1,8 @@
 package com.epam.testAutomationLab.homeWork.Entity;
 
+import com.epam.testAutomationLab.homeWork.Exception.IlluminanceTooMuchException;
+import com.epam.testAutomationLab.homeWork.Exception.SpaceUsageTooMuchException;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +42,10 @@ public class Room {
 
     public void addLightBulb(Lightbulb lightbulb) { lightbulbs.add(lightbulb); }
 
-    public void addFurniture(Furniture furniture) {
-        furnitures.add(furniture);
-    }
+    public void addFurniture(Furniture furniture) { furnitures.add(furniture); }
 
 
-/*
+
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
@@ -59,6 +60,30 @@ public class Room {
         for (Furniture furniture : furnitures) {
             totalAreaOfFurnitures += furniture.furnitureArea;
         }
+
+        if((totalIlluminationOfLightbulbs + totalIlluminationOfWindows) > 4000){
+            try {
+                throw new IlluminanceTooMuchException();
+            } catch (IlluminanceTooMuchException e) {
+                res.append("\n ERROR: Allowed level of illuminance in the room exceeded, total room illuminance should be less than 4000 lx.");
+            }
+        }
+
+            if((totalIlluminationOfLightbulbs + totalIlluminationOfWindows) < 300){
+                try {
+                    throw new IlluminanceNotEnoughException();
+                } catch (IlluminanceNotEnoughException e) {
+                    res.append("\n ERROR: Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
+                }
+            }
+
+            if((totalAreaOfFurnitures*100/roomArea) > 70){
+                try {
+                    throw new SpaceUsageTooMuchException();
+                } catch (SpaceUsageTooMuchException e) {
+                    res.append("\n ERROR: Allowed level of usage of room area exceeded, total room space usage should be less than 70%.");
+                }
+            }
 
         res.append('\n'+name);
 
@@ -98,10 +123,10 @@ public class Room {
         }
         return String.valueOf(res);
     }
-*/
 
-    @Override
-    public String toString() {
-        return name ;
-    }
+
+//    @Override
+//    public String toString() {
+//        return name ;
+//    }
 }
