@@ -24,18 +24,18 @@ public class Building {
     }
 
     public void addRoom(Room room) {
-       // logger.debug("adding "+ room+" to rooms list");
+        logger.debug("adding "+ room.getName()+" to rooms list");
         rooms.add(room);
     }
 
 
     public Room getRoom(String name){
-      //  logger.debug("came parameter "+ name);
+        logger.debug("came parameter "+ name);
         Room res = null;
         for (Room room : rooms) {
             if (room.getName().equals(name)) res = room;
         }
-       // logger.debug("return "+ res);
+        logger.debug("return "+ res.getName());
         return res;
     }
 

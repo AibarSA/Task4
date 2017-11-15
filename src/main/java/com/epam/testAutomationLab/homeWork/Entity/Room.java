@@ -2,12 +2,15 @@ package com.epam.testAutomationLab.homeWork.Entity;
 
 import com.epam.testAutomationLab.homeWork.Exception.IlluminanceTooMuchException;
 import com.epam.testAutomationLab.homeWork.Exception.SpaceUsageTooMuchException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Room {
+    static Logger logger = LogManager.getLogger(Room.class);
 
     private String name;
     private int roomArea;
@@ -65,7 +68,8 @@ public class Room {
             try {
                 throw new IlluminanceTooMuchException();
             } catch (IlluminanceTooMuchException e) {
-                res.append("\n ERROR: Allowed level of illuminance in the room exceeded, total room illuminance should be less than 4000 lx.");
+                res.append("\nERROR: Allowed level of illuminance in "+name+" exceeded, total room illuminance should be less than 4000 lx.");
+                logger.error("Allowed level of illuminance in the room exceeded, total room illuminance should be less than 4000 lx.");
             }
         }
 
@@ -73,7 +77,8 @@ public class Room {
                 try {
                     throw new IlluminanceNotEnoughException();
                 } catch (IlluminanceNotEnoughException e) {
-                    res.append("\n ERROR: Not enough illuminance in the room , total room illuminance should be more than 300 lx.");
+                    res.append("\nERROR: Not enough illuminance in "+name+", total room illuminance should be more than 300 lx.");
+                    logger.error("\nNot enough illuminance in "+name+", total room illuminance should be more than 300 lx.");
                 }
             }
 
@@ -81,7 +86,8 @@ public class Room {
                 try {
                     throw new SpaceUsageTooMuchException();
                 } catch (SpaceUsageTooMuchException e) {
-                    res.append("\n ERROR: Allowed level of usage of room area exceeded, total room space usage should be less than 70%.");
+                    res.append("\nERROR: In "+name+" allowed level of area usage exceeded, total room space usage should be less than 70%.");
+                    logger.error("Allowed level of usage of room area exceeded, total room space usage should be less than 70%.");
                 }
             }
 

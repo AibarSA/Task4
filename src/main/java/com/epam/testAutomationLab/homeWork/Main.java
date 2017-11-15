@@ -28,7 +28,7 @@ public class Main {
         building.getRoom("firstRoom").addFurniture(new Divan("Divan", 50));
         building.getRoom("firstRoom").addFurniture(new BilliardTable("BilliardTable", 7));
         building.getRoom("firstRoom").addFurniture(new DiningTable("DiningTable", 15));
-        building.getRoom("thirdRoom").addFurniture(new Aquarium("Aquarium", 20));
+        building.getRoom("thirdRoom").addFurniture(new Aquarium("Aquarium", 5020));
         building.getRoom("thirdRoom").addFurniture(new Bookcase("Bookcase", 35));
 
 
