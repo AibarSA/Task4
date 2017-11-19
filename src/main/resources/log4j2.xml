@@ -19,6 +19,7 @@
             <AppenderRef ref="File" />
             <AppenderRef ref="File2" level="error"/>
             <AppenderRef ref="File3" level="debug"/>
+
         </Root>
     </Loggers>
 </Configuration>
