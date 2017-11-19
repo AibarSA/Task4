@@ -14,9 +14,6 @@ public class Room {
     List<Lightbulb> lightbulbs = new ArrayList<Lightbulb>();
     List<Furniture> furnitures = new ArrayList<Furniture>();
 
-    public Room() {
-
-    }
 
     public Room(String name, int roomArea, int window) {
         this.name = name;
