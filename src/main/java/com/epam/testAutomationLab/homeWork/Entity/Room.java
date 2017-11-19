@@ -57,10 +57,9 @@ public class Room {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append(ExeptionService.checkForExceptions(this));
-        res.append(RoomService.infoAboutIllumination(this));
-        res.append(RoomService.infoAboutRoomArea(this));
-        res.append(RoomService.infoAboutFurniture(this));
-        return String.valueOf(res);
+        return String.valueOf(res.append(ExeptionService.checkForExceptions(this))
+                                 .append(RoomService.infoAboutIllumination(this))
+                                 .append(RoomService.infoAboutRoomArea(this))
+                                 .append(RoomService.infoAboutFurniture(this)));
     }
 }
