@@ -49,9 +49,9 @@ public class RoomService {
         sb.append('\n'+room.getName());
 
         if (room.getWindow()>0) {
-            sb.append("\nIllumination = " + (RoomService.totalRoomIllumination(room)) + "(" + room.getWindow() + " of windows with 700 lx");
+            sb.append("\nIllumination = " + totalRoomIllumination(room) + "(" + room.getWindow() + " of windows with 700 lx");
         }else{
-            sb.append("\nIllumination = " + (RoomService.totalRoomIllumination(room)) + "(" );
+            sb.append("\nIllumination = " + totalRoomIllumination(room) + "(" );
         }
 
         if (room.getWindow()>0 && room.getLightbulbs().size()>0) sb.append(",");
@@ -75,9 +75,9 @@ public class RoomService {
     public static String infoAboutRoomArea(Room room){
         StringBuilder sb = new StringBuilder();
         sb.append("\nRoom area = " + room.getRoomArea() + " m^2 (used: "+
-                RoomService.usedSpaceOfRoom(room) + " m^2, available space : "+
-                RoomService.availableSpaceOfRoom(room)+" m^2, or "+
-                new DecimalFormat("##.##").format(RoomService.availableSpaceOfRoomInPercent(room)) +" % )");
+                usedSpaceOfRoom(room) + " m^2, available space : "+
+                availableSpaceOfRoom(room)+" m^2, or "+
+                new DecimalFormat("##.##").format(availableSpaceOfRoomInPercent(room)) +" % )");
         return (String.valueOf(sb));
     }
 
