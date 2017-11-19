@@ -3,7 +3,7 @@ package com.epam.testAutomationLab.homeWork.Entity;
 public abstract class Furniture {
 
     String name;
-    int furnitureArea;
+    double furnitureArea;
 
     public Furniture(String name, int furnitureArea) {
         this.name = name;
@@ -14,7 +14,7 @@ public abstract class Furniture {
         return name;
     }
 
-    public int getFurnitureArea() {
+    public double getFurnitureArea() {
         return furnitureArea;
     }
 

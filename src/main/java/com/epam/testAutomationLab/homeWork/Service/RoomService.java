@@ -23,19 +23,22 @@ public class RoomService {
 
 
 
-    public static Double availableSpaceOfRoomInPercent(Room room){
-        return Double.parseDouble(new DecimalFormat("##.##").format(100-(FurnitureService.totalFurnitureArea(room)*100/room.getRoomArea())));
-    }
-
-
-
     public static double usedSpaceOfRoomInPercent(Room room){
         return FurnitureService.totalFurnitureArea(room)*100/room.getRoomArea();
     }
 
 
 
-    public static int usedSpaceOfRoom(Room room){
+
+    public static double availableSpaceOfRoomInPercent(Room room){
+        return 100-(usedSpaceOfRoomInPercent(room));
+    }
+
+
+
+
+
+    public static double usedSpaceOfRoom(Room room){
         return FurnitureService.totalFurnitureArea(room);
     }
 
@@ -71,8 +74,10 @@ public class RoomService {
 
     public static String infoAboutRoomArea(Room room){
         StringBuilder sb = new StringBuilder();
-        sb.append("\nRoom area = " + room.getRoomArea() + " m^2 (used: "+ RoomService.usedSpaceOfRoom(room) + " m^2, available space : "+
-                RoomService.availableSpaceOfRoom(room)+" m^2, or "+ RoomService.availableSpaceOfRoomInPercent(room) +" % )");
+        sb.append("\nRoom area = " + room.getRoomArea() + " m^2 (used: "+
+                RoomService.usedSpaceOfRoom(room) + " m^2, available space : "+
+                RoomService.availableSpaceOfRoom(room)+" m^2, or "+
+                new DecimalFormat("##.##").format(RoomService.availableSpaceOfRoomInPercent(room)) +" % )");
         return (String.valueOf(sb));
     }
 

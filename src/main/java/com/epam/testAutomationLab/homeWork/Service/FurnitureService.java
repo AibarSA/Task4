@@ -5,8 +5,8 @@ import com.epam.testAutomationLab.homeWork.Entity.Room;
 
 public class FurnitureService {
 
-    public static int totalFurnitureArea(Room room){
-            int totalAreaOfFurnitures =0;
+    public static double totalFurnitureArea(Room room){
+            double totalAreaOfFurnitures =0;
             for (Furniture furniture : room.getFurnitures()) {
                 totalAreaOfFurnitures += furniture.getFurnitureArea();
             }
